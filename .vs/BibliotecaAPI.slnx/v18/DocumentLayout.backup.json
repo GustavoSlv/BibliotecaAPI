@@ -1,0 +1,75 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\Projetos\\Estudos C#\\Projetos\\BibliotecaAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9F04E9A0-91CB-D2BF-BA57-FBA592C5D391}|BibliotecaAPI\\BibliotecaAPI.csproj|c:\\users\\gusta\\onedrive\\\u00E1rea de trabalho\\projetos\\estudos c#\\projetos\\bibliotecaapi\\bibliotecaapi\\services\\livrosservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F04E9A0-91CB-D2BF-BA57-FBA592C5D391}|BibliotecaAPI\\BibliotecaAPI.csproj|solutionrelative:bibliotecaapi\\services\\livrosservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F04E9A0-91CB-D2BF-BA57-FBA592C5D391}|BibliotecaAPI\\BibliotecaAPI.csproj|c:\\users\\gusta\\onedrive\\\u00E1rea de trabalho\\projetos\\estudos c#\\projetos\\bibliotecaapi\\bibliotecaapi\\controllers\\livroscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F04E9A0-91CB-D2BF-BA57-FBA592C5D391}|BibliotecaAPI\\BibliotecaAPI.csproj|solutionrelative:bibliotecaapi\\controllers\\livroscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F04E9A0-91CB-D2BF-BA57-FBA592C5D391}|BibliotecaAPI\\BibliotecaAPI.csproj|c:\\users\\gusta\\onedrive\\\u00E1rea de trabalho\\projetos\\estudos c#\\projetos\\bibliotecaapi\\bibliotecaapi\\controllers\\autorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F04E9A0-91CB-D2BF-BA57-FBA592C5D391}|BibliotecaAPI\\BibliotecaAPI.csproj|solutionrelative:bibliotecaapi\\controllers\\autorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AutoresController.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\Projetos\\Estudos C#\\Projetos\\BibliotecaAPI\\BibliotecaAPI\\Controllers\\AutoresController.cs",
+              "RelativeDocumentMoniker": "BibliotecaAPI\\Controllers\\AutoresController.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\Projetos\\Estudos C#\\Projetos\\BibliotecaAPI\\BibliotecaAPI\\Controllers\\AutoresController.cs",
+              "RelativeToolTip": "BibliotecaAPI\\Controllers\\AutoresController.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAcwDcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T05:44:05.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LivrosServices.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\Projetos\\Estudos C#\\Projetos\\BibliotecaAPI\\BibliotecaAPI\\Services\\LivrosServices.cs",
+              "RelativeDocumentMoniker": "BibliotecaAPI\\Services\\LivrosServices.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\Projetos\\Estudos C#\\Projetos\\BibliotecaAPI\\BibliotecaAPI\\Services\\LivrosServices.cs",
+              "RelativeToolTip": "BibliotecaAPI\\Services\\LivrosServices.cs",
+              "ViewState": "AgIAAPgAAAAAAAAAAAAswAABAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T05:10:09.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LivrosController.cs",
+              "DocumentMoniker": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\Projetos\\Estudos C#\\Projetos\\BibliotecaAPI\\BibliotecaAPI\\Controllers\\LivrosController.cs",
+              "RelativeDocumentMoniker": "BibliotecaAPI\\Controllers\\LivrosController.cs",
+              "ToolTip": "C:\\Users\\gusta\\OneDrive\\\u00C1rea de Trabalho\\Projetos\\Estudos C#\\Projetos\\BibliotecaAPI\\BibliotecaAPI\\Controllers\\LivrosController.cs",
+              "RelativeToolTip": "BibliotecaAPI\\Controllers\\LivrosController.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAmwFsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T05:10:07.391Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
