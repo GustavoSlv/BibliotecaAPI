@@ -47,7 +47,7 @@ namespace BibliotecaAPI.Controllers
 
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<AutorReadDto>> PostAutorAsync(AutorCreateDto dto)
         {
             var autorDto = await _autoresServices.PostAutorAsync(dto);
@@ -60,7 +60,7 @@ namespace BibliotecaAPI.Controllers
 
 
         [HttpPut("{id}")]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
 
         public async Task<ActionResult<AutorReadDto>> PutAutorAsync(int id, AutorUpdateDto dto)
         {
@@ -79,7 +79,7 @@ namespace BibliotecaAPI.Controllers
 
 
         [HttpDelete("{id}")]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
 
         public async Task<ActionResult<bool>> DeleteAutorAsync(int id)
 

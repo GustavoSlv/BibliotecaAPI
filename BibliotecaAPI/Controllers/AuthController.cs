@@ -36,15 +36,15 @@ namespace BibliotecaAPI.Controllers
         [AllowAnonymous] //Permite executar sem autenticação
         public async Task<IActionResult> Login(LoginDto dto)
         {
-            var token = await _authService.LoginAsync(
+            var resultadoToken = await _authService.LoginAsync(
                 dto.Email, dto.Password);
 
-            if (token == null)
+            if (resultadoToken == null)
             {
                 return Unauthorized("E-mail ou senha inválidos.");
             }
 
-            return Ok(new { Token = token });
+            return Ok(resultadoToken);
         }
     }
 }

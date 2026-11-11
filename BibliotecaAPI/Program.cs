@@ -2,6 +2,7 @@ using BibliotecaAPI.Context;
 using BibliotecaAPI.Models;
 using BibliotecaAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -9,11 +10,11 @@ using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 
-// Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+//Configura o Swagger para suportar autenticação JWT
 builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -43,14 +44,18 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 
-//Conexao banco de dados
+// Configura o DbContext para usar o SQL Server com a string de conexão do appsettings.json
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
+//Inicio da configuração de JWT
 
+
+// Configura o Identity para usar a classe ApplicationUser e IdentityRole
 builder.Services.AddIdentityCore<ApplicationUser>()
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>();
 
 
@@ -80,15 +85,21 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
+//Fim da configuração de JWT
 
+// Adiciona os serviços de negócio, da pasta services para serem acessados via injeção de dependência nas controllers
 builder.Services.AddScoped<AutoresServices>();
-
 builder.Services.AddScoped<LivrosServices>();
-
 builder.Services.AddScoped<AuthService>();
 
 
 var app = builder.Build();
+
+//Cria roles no banco de dados caso não existam
+using (var scope = app.Services.CreateScope())
+{
+    await RoleSeeder.CriarRolesAsync(scope.ServiceProvider);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
