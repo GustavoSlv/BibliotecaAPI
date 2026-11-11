@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace BibliotecaAPI.Controllers
+namespace BibliotecaAPI.Models
 {
     public class ApplicationUser : IdentityUser
     {

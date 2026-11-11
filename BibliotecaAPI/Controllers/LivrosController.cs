@@ -3,6 +3,7 @@ using BibliotecaAPI.Dtos.AutorDto;
 using BibliotecaAPI.Dtos.LivroDto;
 using BibliotecaAPI.Models;
 using BibliotecaAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -55,6 +56,7 @@ namespace BibliotecaAPI.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<LivroReadDto>> PostAsync(LivroCreateDto dto)
         {
 
@@ -76,6 +78,7 @@ namespace BibliotecaAPI.Controllers
 
 
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<ActionResult<LivroReadDto>> PutAsync(int id, LivroUpdateDto dto)
         {
             var livroPesquisado = await _livroService.PutAsync(id, dto);
@@ -94,6 +97,7 @@ namespace BibliotecaAPI.Controllers
 
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult> DeleteAsync(int id)
         {
             var livroPesquisado = await _livroService.DeleteAsync(id);

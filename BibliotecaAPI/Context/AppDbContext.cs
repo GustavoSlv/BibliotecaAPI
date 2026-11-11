@@ -1,5 +1,4 @@
-﻿using BibliotecaAPI.Controllers;
-using BibliotecaAPI.Models;
+﻿using BibliotecaAPI.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
