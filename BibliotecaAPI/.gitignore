@@ -1,33 +1,16 @@
-# Compilação e arquivos gerados pelo .NET
-[Bb]in/
-[Oo]bj/
-[Aa]rtifacts/
-[Ll]ogs/
-
 # Visual Studio
 .vs/
+**/.vs/
 *.user
 *.suo
-*.userosscache
-*.sln.docstates
 
-# Visual Studio Code
-.vscode/
+# Arquivos compilados
+bin/
+obj/
 
-# Rider / JetBrains
-.idea/
-*.sln.iml
-
-# Pacotes e testes
-.nuget/
-packages/
-TestResults/
-
-# Configurações locais com dados sensíveis
+# Configurações locais
 appsettings.Development.json
-secrets.json
+**/appsettings.Development.json
 
-# Sistema operacional
-.DS_Store
-Thumbs.db
-Desktop.ini
+# Segredos locais
+secrets.json

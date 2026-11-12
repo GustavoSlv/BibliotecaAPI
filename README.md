@@ -1,55 +1,90 @@
 # BibliotecaAPI
 
-## Sobre o projeto
+O objetivo deste projeto √© praticar o desenvolvimento de APIs REST com C# e .NET 8. A BibliotecaAPI permite gerenciar livros e autores com CRUD, filtros, ordena√ß√£o, pagina√ß√£o e autentica√ß√£o JWT. √â um projeto de estudo e portf√≥lio.
 
-A BibliotecaAPI È uma API REST desenvolvida em C# com ASP.NET Core para gerenciamento de livros e autores. A aplicaÁ„o permite cadastrar, consultar, atualizar e excluir registros, alÈm de realizar consultas com filtros, ordenaÁ„o e paginaÁ„o.
+## Funcionalidades
 
-O projeto utiliza uma estrutura organizada em controllers, serviÁos, modelos e DTOs, buscando separar as responsabilidades e facilitar a manutenÁ„o do cÛdigo. A integraÁ„o com o SQL Server È realizada por meio do Entity Framework Core, respons·vel pelo acesso e gerenciamento dos dados.
+- CRUD de livros e autores, com relacionamento entre eles.
+- Consultas com filtros, ordena√ß√£o e pagina√ß√£o.
+- Organiza√ß√£o em Controllers, Services e DTOs.
+- Cadastro e login com ASP.NET Core Identity e JWT.
+- Roles `User` e `Admin`: consultas GET liberadas; POST, PUT e DELETE restritos a `Admin`.
 
-A API tambÈm contempla o relacionamento entre livros e autores, validaÁ„o de dados e tratamento de situaÁıes como registros n„o encontrados, seguindo pr·ticas comuns no desenvolvimento de aplicaÁıes backend.
+## Depend√™ncias
 
-## Tecnologias utilizadas
+- **.NET 8 SDK**
+- **Visual Studio 2026**
+- **SQL Server**
+- **Bibliotecas e ferramentas utilizadas:** Entity Framework Core, `Microsoft.EntityFrameworkCore.SqlServer`, ASP.NET Core Identity (`Microsoft.AspNetCore.Identity.EntityFrameworkCore`), JWT Bearer (`Microsoft.AspNetCore.Authentication.JwtBearer`), Swagger/Swashbuckle e EF Core Tools.
 
-- C#
-- .NET 8
-- ASP.NET Core Web API
-- Entity Framework Core
-- SQL Server
+## Conex√£o com Banco de Dados e Autentica√ß√£o JWT
 
-## PrÈ-requisitos
-
-- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-- SQL Server
-- Entity Framework Core Tools
-
-## ConfiguraÁ„o
-
-Crie o arquivo `appsettings.Development.json` na raiz do projeto e configure a string de conex„o:
+1. Na pasta do projeto (onde est√° `BibliotecaAPI.csproj`), crie o arquivo **`appsettings.Development.json`**:
 
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=SEU_SERVIDOR;Database=BibliotecaAPI;User Id=SEU_USUARIO;Password=SUA_SENHA;TrustServerCertificate=True;"
+    "DefaultConnection": "Server=\"\";Database=BibliotecaAPI;User Id=\"\";Password=\"\";TrustServerCertificate=True;"
+  },
+  "Jwt": {
+    "SecretKey": "",
+    "Issuer": "BibliotecaAPI",
+    "Audience": "BibliotecaAPI",
+    "ExpirationMinutes": 60
   }
 }
 ```
 
-Substitua os valores pelos dados da sua inst‚ncia do SQL Server.
+Preencha o **servidor, usu√°rio e senha** da conex√£o SQL Server nos campos `""`. 
+
+2. **Crie a chave JWT**: coloque temporariamente este c√≥digo no `Program.cs`, ap√≥s a cria√ß√£o do `builder` (com o `using` no in√≠cio do arquivo):
+
+```csharp
+using System.Security.Cryptography;
+
+var chave = Convert.ToBase64String(RandomNumberGenerator.GetBytes(32));
+Console.WriteLine(chave);
+```
+
+Execute o projeto, copie a chave gerada e coloque-a em `Jwt:SecretKey` no `appsettings.Development.json`. **Depois remova esse c√≥digo tempor√°rio.**
+
+3. No **`Program.cs`**, mantenha a configura√ß√£o de `AddAuthentication().AddJwtBearer(...)`, que l√™ a chave e valida assinatura, emissor, p√∫blico e expira√ß√£o. Use `app.UseAuthentication()` antes de `app.UseAuthorization()`.
+
+4. Nos estudos, tamb√©m foi utilizado o comando abaixo, executado no terminal na pasta do `.csproj`:
+
+```bash
+dotnet user-jwts create
+```
+
+Ele cria **um token de teste para desenvolvimento**, mas **n√£o substitui** a chave `Jwt:SecretKey` usada no login da BibliotecaAPI.
+
+> **Seguran√ßa:** mantenha `appsettings.Development.json` ignorado e n√£o rastreado pelo Git, pois cont√©m credenciais. N√£o publique sua chave ou senha.
 
 ## Migrations
 
-Criar uma migration:
+No Visual Studio, abra **Ferramentas ‚Üí Gerenciador de Pacotes NuGet ‚Üí Console do Gerenciador de Pacotes** e selecione o projeto `BibliotecaAPI`.
 
-```bash
-dotnet ef migrations add NomeDaMigration
+**Criar uma nova migration** (quando houver mudan√ßas nos modelos ou contexto):
+
+```powershell
+Add-Migration NomeDaMigration
 ```
 
-Atualizar o banco de dados:
+**Criar/atualizar as tabelas no banco:**
 
-```bash
-dotnet ef database update
+```powershell
+Update-Database
 ```
 
-## Objetivo
 
-Projeto de estudo e portfÛlio voltado ‡ aplicaÁ„o pr·tica de conceitos de desenvolvimento backend com C# e .NET.
+## Teste
+
+Execute o projeto no Visual Studio e abra o **Swagger** (`/swagger`) para testar as rotas.
+
+- `GET /api/Livros` e `GET /api/Autores`: consultas liberadas.
+- `POST /api/Auth/register`: cadastro de usu√°rio (recebe role `User`).
+- `POST /api/Auth/login`: retorna o JWT e sua expira√ß√£o.
+- Clique em **Authorize** no Swagger, informe o token e teste POST, PUT e DELETE de livros e autores.
+- Um usu√°rio `User` recebe **403 Forbidden** nessas opera√ß√µes; um `Admin` autorizado pode execut√°-las. Sem token v√°lido, o retorno √© **401 Unauthorized**.
+
+As roles s√£o criadas pelo `RoleSeeder`. A atribui√ß√£o de `Admin` deve ser feita de maneira controlada, n√£o pelo cadastro p√∫blico.

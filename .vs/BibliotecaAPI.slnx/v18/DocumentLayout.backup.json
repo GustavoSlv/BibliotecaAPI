@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\gustavo.alves\\Desktop\\teste\\BibliotecaAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9F04E9A0-91CB-D2BF-BA57-FBA592C5D391}|BibliotecaAPI\\BibliotecaAPI.csproj|c:\\users\\gustavo.alves\\desktop\\teste\\bibliotecaapi\\bibliotecaapi\\controllers\\livroscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F04E9A0-91CB-D2BF-BA57-FBA592C5D391}|BibliotecaAPI\\BibliotecaAPI.csproj|solutionrelative:bibliotecaapi\\controllers\\livroscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F04E9A0-91CB-D2BF-BA57-FBA592C5D391}|BibliotecaAPI\\BibliotecaAPI.csproj|c:\\users\\gustavo.alves\\desktop\\teste\\bibliotecaapi\\bibliotecaapi\\services\\livrosservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F04E9A0-91CB-D2BF-BA57-FBA592C5D391}|BibliotecaAPI\\BibliotecaAPI.csproj|solutionrelative:bibliotecaapi\\services\\livrosservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F04E9A0-91CB-D2BF-BA57-FBA592C5D391}|BibliotecaAPI\\BibliotecaAPI.csproj|c:\\users\\gustavo.alves\\desktop\\teste\\bibliotecaapi\\bibliotecaapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F04E9A0-91CB-D2BF-BA57-FBA592C5D391}|BibliotecaAPI\\BibliotecaAPI.csproj|solutionrelative:bibliotecaapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F04E9A0-91CB-D2BF-BA57-FBA592C5D391}|BibliotecaAPI\\BibliotecaAPI.csproj|c:\\users\\gustavo.alves\\desktop\\teste\\bibliotecaapi\\bibliotecaapi\\services\\roleseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F04E9A0-91CB-D2BF-BA57-FBA592C5D391}|BibliotecaAPI\\BibliotecaAPI.csproj|solutionrelative:bibliotecaapi\\services\\roleseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "LivrosController.cs",
-              "DocumentMoniker": "C:\\Users\\gustavo.alves\\Desktop\\teste\\BibliotecaAPI\\BibliotecaAPI\\Controllers\\LivrosController.cs",
-              "RelativeDocumentMoniker": "BibliotecaAPI\\Controllers\\LivrosController.cs",
-              "ToolTip": "C:\\Users\\gustavo.alves\\Desktop\\teste\\BibliotecaAPI\\BibliotecaAPI\\Controllers\\LivrosController.cs",
-              "RelativeToolTip": "BibliotecaAPI\\Controllers\\LivrosController.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAwwCgAAAAXAAAAAAAAAA==",
+              "Title": "LivrosServices.cs",
+              "DocumentMoniker": "C:\\Users\\gustavo.alves\\Desktop\\teste\\BibliotecaAPI\\BibliotecaAPI\\Services\\LivrosServices.cs",
+              "RelativeDocumentMoniker": "BibliotecaAPI\\Services\\LivrosServices.cs",
+              "ToolTip": "C:\\Users\\gustavo.alves\\Desktop\\teste\\BibliotecaAPI\\BibliotecaAPI\\Services\\LivrosServices.cs",
+              "RelativeToolTip": "BibliotecaAPI\\Services\\LivrosServices.cs",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAcwNMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T20:20:23.119Z",
+              "WhenOpened": "2026-11-12T16:18:57.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\gustavo.alves\\Desktop\\teste\\BibliotecaAPI\\BibliotecaAPI\\Program.cs",
+              "RelativeDocumentMoniker": "BibliotecaAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\gustavo.alves\\Desktop\\teste\\BibliotecaAPI\\BibliotecaAPI\\Program.cs",
+              "RelativeToolTip": "BibliotecaAPI\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-12T14:19:27.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RoleSeeder.cs",
+              "DocumentMoniker": "C:\\Users\\gustavo.alves\\Desktop\\teste\\BibliotecaAPI\\BibliotecaAPI\\Services\\RoleSeeder.cs",
+              "RelativeDocumentMoniker": "BibliotecaAPI\\Services\\RoleSeeder.cs",
+              "ToolTip": "C:\\Users\\gustavo.alves\\Desktop\\teste\\BibliotecaAPI\\BibliotecaAPI\\Services\\RoleSeeder.cs",
+              "RelativeToolTip": "BibliotecaAPI\\Services\\RoleSeeder.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAawCQAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-12T14:27:34.388Z",
               "EditorCaption": ""
             }
           ]
