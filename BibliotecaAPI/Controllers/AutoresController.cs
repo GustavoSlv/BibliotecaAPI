@@ -84,13 +84,23 @@ namespace BibliotecaAPI.Controllers
         public async Task<ActionResult<bool>> DeleteAutorAsync(int id)
 
         {
-            var autor = await _autoresServices.DeleteAutorAsync(id);
-            if (autor == false)
+            var (sucesso, msgErro) = await _autoresServices.DeleteAutorAsync(id);
+            
+            if(msgErro == "Autor não encontrado.")
             {
-                return NotFound();
+                return NotFound(msgErro);
             }
+
+            if(msgErro == "Não é possível excluir o autor, pois existem livros associados a ele.")
+            {
+                return BadRequest(msgErro);
+            }
+
             return NoContent();
 
         }
+
+
+        
     }
 }

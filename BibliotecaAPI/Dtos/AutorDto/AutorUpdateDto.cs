@@ -1,7 +1,11 @@
-﻿namespace BibliotecaAPI.Dtos.AutorDto
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BibliotecaAPI.Dtos.AutorDto
 {
     public class AutorUpdateDto
     {
-        public string Nome { get; set; }
+        [Required(ErrorMessage = "O nome é obrigatório.")]
+        [StringLength(200, MinimumLength = 2)]
+        public string Nome { get; set; } = string.Empty;
     }
 }

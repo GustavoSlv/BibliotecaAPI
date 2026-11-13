@@ -122,21 +122,34 @@ namespace BibliotecaAPI.Services
 
 
 
-        public async Task<bool> DeleteAutorAsync(int id)
+        public async Task<(bool sucesso, string? msgErro)> DeleteAutorAsync(int idAutor)
 
         {
-            var autorExistente = await _context.Autores.FirstOrDefaultAsync(a => a.Id == id);
-
+            //Verifica se o autor existe antes de deletar
+            
+            var autorExistente = await _context.Autores.FirstOrDefaultAsync(a => a.Id == idAutor);
 
             if (autorExistente is null)
             {
-                return false;
+                return (false, "Autor não encontrado.");
             }
+
+
+            //Verifica se o autor existe e se possui livros associados antes de deletar
+            var livrosDoAutor = await _context.Livros.AnyAsync(l => l.AutorId == idAutor);
+            
+            if (livrosDoAutor)
+            {
+                return (false, "Não é possível excluir o autor, pois existem livros associados a ele.");
+            }
+
 
             _context.Remove(autorExistente);
             await _context.SaveChangesAsync();
 
-            return true;
+            return (true, null);
         }
+
+
     }
 }

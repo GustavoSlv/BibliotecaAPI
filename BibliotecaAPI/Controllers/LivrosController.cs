@@ -64,7 +64,7 @@ namespace BibliotecaAPI.Controllers
 
             if (livro is null)
             {
-                return NotFound();
+                return BadRequest("Autor informado não existe");
             }
 
 
@@ -81,15 +81,23 @@ namespace BibliotecaAPI.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult<LivroReadDto>> PutAsync(int id, LivroUpdateDto dto)
         {
-            var livroPesquisado = await _livroService.PutAsync(id, dto);
 
-            if (livroPesquisado is null)
+            //Esse método retorna uma tupla contendo o livro atualizado e uma mensagem de erro, caso haja algum problema.
+            //A msgem de erro será nula se o livro for atualizado com sucesso.
+            var (livro, errorMessage) = await _livroService.PutAsync(id, dto);
+
+            if (errorMessage == "Livro não encontrado.")
             {
-                return NotFound();
+                return NotFound(errorMessage);
             }
 
+            if (errorMessage == "Autor não encontrado.")
+            {
+                return BadRequest(errorMessage);
+            }
 
-            return Ok(livroPesquisado);
+            //Se não houver mensagem de erro, significa que o livro foi atualizado com sucesso, então retornamos Ok com o livro atualizado.
+            return Ok(livro);
         }
 
 
@@ -106,6 +114,22 @@ namespace BibliotecaAPI.Controllers
             {
                 return NotFound("Livro não encontrado.");
             }
+            return NoContent();
+        }
+
+
+        [HttpDelete("autor/{idAutor}", Name = "DeletarLivrosPorAutor")]
+        [Authorize(Roles = "Admin")]
+        
+        public async Task<ActionResult> DeleteLivrosByAutorAsync(int idAutor)
+        {
+            var sucesso = await _livroService.DeletaLivrosByAutor(idAutor);
+
+            if (!sucesso)
+            {
+                return NotFound("Nenhum livro encontrado para o autor especificado.");
+            }
+
             return NoContent();
         }
     }
