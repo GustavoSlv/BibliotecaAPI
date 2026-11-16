@@ -93,6 +93,22 @@ builder.Services.AddScoped<LivrosServices>();
 builder.Services.AddScoped<AuthService>();
 
 
+
+// Configura o CORS para permitir requisições do front-end hospedado em http://
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("BibliotecaWeb", policy =>
+    {
+        policy.WithOrigins(
+                "http://127.0.0.1:5500",
+                "http://localhost:5500"
+              )
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
+
 var app = builder.Build();
 
 //Cria roles no banco de dados caso não existam
@@ -109,6 +125,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("BibliotecaWeb");
 app.UseAuthentication();
 app.UseAuthorization();
 

@@ -44,7 +44,8 @@ namespace BibliotecaAPI.Services
                 {
                     Id = a.Id,
                     Nome = a.Nome
-                }).ToListAsync();
+                }).OrderBy(a => a.Id)
+                .ToListAsync();
 
 
             //Configuração da resposta com informações de paginação
