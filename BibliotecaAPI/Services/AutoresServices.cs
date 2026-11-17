@@ -27,24 +27,17 @@ namespace BibliotecaAPI.Services
             }
 
 
-            //Ordenação
-            if(queryDto.Direcao == "desc")
-            {
-                autores = autores.OrderByDescending(a => a.Nome);
-            }
-            else
-            {
-                autores = autores.OrderBy(a => a.Nome);
-            }
+            
 
             var listaAutorDto = await autores
+                .OrderBy(a => a.Id)
                 .Skip((queryDto.PageNumber - 1) * queryDto.PageSize)
                 .Take(queryDto.PageSize)
                 .Select(a => new AutorReadDto
                 {
                     Id = a.Id,
                     Nome = a.Nome
-                }).OrderBy(a => a.Id)
+                })
                 .ToListAsync();
 
 
